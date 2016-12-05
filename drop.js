@@ -12,15 +12,24 @@ function Drop(){
     this.yspeed = this.yspeed + gravity;
 
 
-    if ((this.y > height)||(this.x == mouseX && this.y == mouseY)){
+    if ((this.y > height)||this.touching()){
       ellipse(posx, posy, 20, 5);
       for (var i = 0; i < 10; i++){
-        var yrandom = random(30,70);
+        var yrandom = random(30,150);
         var posx = random(this.x-10, this.x+10);
         var posy = random(this.y, this.y-yrandom);
         noStroke();
-        fill(102, 123, 144);
+        fill(255, 255, 255, 50);
         ellipse(posx, posy, random(1,5), random(1,5));
+      }
+
+      for (var i = 0; i < 2; i++){
+        var yrandom = random(20,50);
+        var posx = random(this.x-5, this.x+5);
+        var posy = random(this.y, this.y-yrandom);
+        noStroke();
+        fill(255, 255, 255, 50);
+        ellipse(posx, posy, random(2,5), random(2,5));
       }
 
       this.y = random(-200, -100);
@@ -28,10 +37,18 @@ function Drop(){
     }
   }
 
+  this.touching = function(){
+    if(this.x == mouseX && this.y == mouseY){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
   this.show = function(){
-    var thick = map(this.z, 0, 20, 1, 3);
+    var thick = map(this.z, 0, 20, 1, 4);
     strokeWeight(thick);
-    stroke(82, 103, 124);
+    stroke(92, 113, 134,75);
     line(this.x,this.y,this.x,this.y+this.len);
   }
 }
