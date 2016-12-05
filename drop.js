@@ -14,8 +14,8 @@ function Drop(){
 
     if ((this.y > height)||(this.x == mouseX && this.y == mouseY)){
       ellipse(posx, posy, 20, 5);
-      for (var i = 0; i < 5; i++){
-        var yrandom = random(30,50);
+      for (var i = 0; i < 10; i++){
+        var yrandom = random(30,70);
         var posx = random(this.x-10, this.x+10);
         var posy = random(this.y, this.y-yrandom);
         noStroke();

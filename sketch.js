@@ -10,7 +10,13 @@ function setup(){
 }
 
 function draw() {
-  background(44, 62, 80);
+  lightning = random(1,100);
+  if(lightning < 99){
+    background(44, 62, 80);
+  } else{
+    background(199, 207, 219);
+  }
+
   //rotate(0.1);
   for(var i = 0; i < drops.length; i++){
     drops[i].fall();
