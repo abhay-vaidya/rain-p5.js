@@ -11,8 +11,18 @@ function Drop(){
     var gravity = map(this.z, 0, 20, 0.1, 0.2);
     this.yspeed = this.yspeed + gravity;
 
+
     if ((this.y > height)||(this.x == mouseX && this.y == mouseY)){
-      ellipse(this.x, this.y, 20, 10);
+      ellipse(posx, posy, 20, 5);
+      for (var i = 0; i < 5; i++){
+        var yrandom = random(30,50);
+        var posx = random(this.x-10, this.x+10);
+        var posy = random(this.y, this.y-yrandom);
+        noStroke();
+        fill(102, 123, 144);
+        ellipse(posx, posy, random(1,5), random(1,5));
+      }
+
       this.y = random(-200, -100);
       this.yspeed = map(this.z, 0, 20, 4, 10);
     }

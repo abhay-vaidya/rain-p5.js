@@ -1,5 +1,5 @@
   var drops = []
-  var numDrops = 10;
+  var numDrops = 600;
 
 function setup(){
   createCanvas(640, 360);
